@@ -1,11 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePageScreens extends StatelessWidget {
+import '../models/employee_model.dart';
+import '../services/get_employees_services.dart';
+
+class HomePageScreens extends StatefulWidget {
 
   const HomePageScreens({Key? key}) : super(key: key);
 
   @override
+  State<HomePageScreens> createState() => _HomePageScreensState();
+}
+
+class _HomePageScreensState extends State<HomePageScreens> {
+  @override
+  void initState() {
+     stor();
+    super.initState();
+  }
+  void stor () async
+  {
+    try {
+    EmployeeServices services = EmployeeServices();
+    List<EmployeeModel> employeeModel = await services.getEmployeeServices();
+  }
+  catch(e)
+    {
+      print('errorrrrrrrrrrrrrrrrr$e');
+    }
+  }
 
   Widget build(BuildContext context) {
 
