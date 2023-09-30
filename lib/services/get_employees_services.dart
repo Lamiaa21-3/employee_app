@@ -8,7 +8,7 @@ import '../models/employee_model.dart';
 
 class EmployeeServices{
   EmployeeModel? employeeModel;
-   Future<List<EmployeeModel>> getEmployeeServices()  async
+   Future<EmployeeModel> getEmployeeServices()  async
   {
 
       Uri url = Uri.parse('https://jsonplaceholder.typicode.com/users');
@@ -20,10 +20,10 @@ class EmployeeServices{
         {
           employeeList.add(EmployeeModel.fromJson(data[i]));
         }
-      //EmployeeModel employeeModel = EmployeeModel.fromJson(employeeList);
-      //print(employeeModel.phone);
-      print(employeeList[0].email);
-      return employeeList;
+      EmployeeModel employeeModel = EmployeeModel.fromJson(employeeList);
+      print(employeeModel.phone);
+      //print(employeeList[0].email);
+      return employeeModel;
 
 
 

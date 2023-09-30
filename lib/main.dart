@@ -1,8 +1,12 @@
+import 'package:empolyee_info/providers/employee_provider.dart';
 import 'package:empolyee_info/screens/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (_)=> EmployeeProvider(),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
