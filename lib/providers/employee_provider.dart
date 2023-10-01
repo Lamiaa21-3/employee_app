@@ -33,7 +33,7 @@ List<EmployeeModel> employeeList = [];
        {
          employeeList.add(EmployeeModel.fromJson(data[i]));
        }
-       print(employeeList[0].phone);
+       print(employeeList[3].address?.street);
       notifyListeners();
 
 
