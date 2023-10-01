@@ -14,20 +14,8 @@ class HomePageScreens extends StatefulWidget {
 }
 
 class _HomePageScreensState extends State<HomePageScreens> {
-  @override
-  void initState() {
-    stor();
-    super.initState();
-  }
 
-  void stor() async {
-    try {
-      EmployeeServices services = EmployeeServices();
-      EmployeeModel employeeModel = await services.getEmployeeServices();
-    } catch (e) {
-      print('errorrrrrrrrrrrrrrrrr$e');
-    }
-  }
+
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +50,7 @@ class _HomePageScreensState extends State<HomePageScreens> {
                               width: 30,
                             ),
                             Text(
-                             ' ${provider.employeeModel!.name}',
+                             ' ${provider.employeeList[index].name}',
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
@@ -83,7 +71,7 @@ class _HomePageScreensState extends State<HomePageScreens> {
                               width: 30,
                             ),
                             Text(
-                              ' ${provider.employeeModel!.email}',
+                              ' ${provider.employeeList[index].email}',
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
@@ -103,7 +91,7 @@ class _HomePageScreensState extends State<HomePageScreens> {
                             SizedBox(
                               width: 30,
                             ),
-                            Text( ' ${provider.employeeModel!.phone}',
+                            Text( '${provider.employeeList[index].phone} ',
                                 style: TextStyle(color: Colors.white)),
                           ],
                         ),
@@ -119,7 +107,7 @@ class _HomePageScreensState extends State<HomePageScreens> {
                   height: 1,
                 );
               },
-              itemCount: provider.employeeModel.,
+              itemCount: provider.employeeList.length,
           ),
         ),
     );

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-    create: (_)=> EmployeeProvider(),
+    create: (_)=> EmployeeProvider()..getEmployeeServices(),
       child: const MyApp()));
 }
 
